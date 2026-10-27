@@ -1,0 +1,287 @@
+/* =====================================================
+   CONTAINER
+   ===================================================== */
+
+.container {
+    width: 100%;
+    max-width: 900px;
+
+    margin: 0 auto;
+
+    padding: 40px 20px;
+}
+
+
+/* =====================================================
+   CARD PRINCIPAL
+   ===================================================== */
+
+.card {
+    background: white;
+
+    padding: 35px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.card h1 {
+    text-align: center;
+
+    margin-bottom: 10px;
+}
+
+.descricao {
+    text-align: center;
+
+    color: #666;
+
+    margin-bottom: 30px;
+}
+
+
+/* =====================================================
+   FORMULÁRIO
+   ===================================================== */
+
+.formulario {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 20px;
+}
+
+.campo {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.campo label {
+    font-weight: bold;
+}
+
+
+select,
+input {
+    width: 100%;
+
+    padding: 12px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 8px;
+
+    font-size: 16px;
+
+    background: white;
+}
+
+select:focus,
+input:focus {
+    outline: none;
+
+    border-color: #333;
+}
+
+
+/* =====================================================
+   TEMPO
+   ===================================================== */
+
+.tempo {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.tempo input {
+    width: 120px;
+}
+
+.tempo span {
+    color: #555;
+}
+
+
+/* =====================================================
+   TARIFA
+   ===================================================== */
+
+.tarifa {
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+.tarifa input {
+    max-width: 150px;
+}
+
+
+/* =====================================================
+   BOTÃO
+   ===================================================== */
+
+button {
+    margin-top: 10px;
+
+    padding: 14px;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background: #222;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+button:hover {
+    background: #444;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+
+/* =====================================================
+   RESULTADO
+   ===================================================== */
+
+.resultado {
+    margin-top: 25px;
+
+    background: white;
+
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.resultado h2 {
+    margin-bottom: 20px;
+}
+
+.resultado-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 15px;
+}
+
+.resultado-item {
+    padding: 20px;
+
+    border-radius: 10px;
+
+    background: #f2f4f7;
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+.resultado-label {
+    font-size: 14px;
+
+    color: #666;
+}
+
+.resultado-item strong {
+    font-size: 20px;
+}
+
+.destaque {
+    background: #e8f5e9;
+}
+
+
+/* =====================================================
+   INFORMAÇÕES
+   ===================================================== */
+
+.informacao {
+    margin-top: 25px;
+
+    background: white;
+
+    padding: 25px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.informacao h3 {
+    margin-bottom: 15px;
+}
+
+.informacao p {
+    margin-bottom: 10px;
+
+    line-height: 1.5;
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE
+   ===================================================== */
+
+@media (max-width: 800px) {
+
+    .resultado-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .card,
+    .resultado,
+    .informacao {
+        padding: 20px;
+    }
+
+    .resultado-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .tempo {
+        flex-wrap: wrap;
+    }
+
+    .tempo input {
+        width: 100px;
+    }
+
+}

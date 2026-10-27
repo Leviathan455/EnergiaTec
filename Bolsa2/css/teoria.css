@@ -1,0 +1,1716 @@
+/* ============================================
+   1. CORES E CONFIGURAÇÕES GERAIS
+============================================ */
+
+:root {
+    --teoria-green: #16834a;
+    --teoria-green-dark: #116638;
+    --teoria-green-light: #e8f5ed;
+
+    --teoria-blue: #1479a8;
+    --teoria-blue-light: #eaf5fc;
+
+    --teoria-orange: #c76b22;
+    --teoria-orange-light: #fff3e8;
+
+    --teoria-text: #1e293b;
+    --teoria-text-light: #64748b;
+
+    --teoria-background: #f4f7f5;
+    --teoria-surface: #ffffff;
+
+    --teoria-border: #dfe7e2;
+
+    --teoria-radius: 18px;
+
+    --teoria-shadow:
+        0 5px 22px rgba(15, 23, 42, 0.045);
+}
+
+.teoria-page,
+.teoria-page * {
+    box-sizing: border-box;
+}
+
+.teoria-page {
+    margin: 0;
+    padding: 0;
+
+    background: var(--teoria-background);
+    color: var(--teoria-text);
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    line-height: 1.7;
+}
+
+.teoria-page a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.teoria-page button,
+.teoria-page input {
+    font: inherit;
+}
+
+.teoria-page img,
+.teoria-page svg {
+    max-width: 100%;
+}
+
+
+/* ============================================
+   2. CONTAINER
+============================================ */
+
+.teoria-container {
+    width: min(1120px, 100%);
+    margin: 0 auto;
+    padding: 24px;
+}
+
+.teoria-container p {
+    overflow-wrap: break-word;
+}
+
+
+/* ============================================
+   3. NAVEGAÇÃO SUPERIOR
+============================================ */
+
+.teoria-topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+
+    margin-bottom: 32px;
+}
+
+.teoria-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px 14px;
+
+    background: #ffffff;
+    color: var(--teoria-text);
+
+    border: 1px solid var(--teoria-border);
+    border-radius: 10px;
+
+    font-size: 0.92rem;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        border-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.teoria-back:hover {
+    background: var(--teoria-green-light);
+    color: var(--teoria-green-dark);
+    border-color: #b4ddc3;
+}
+
+.teoria-back span {
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.teoria-brand {
+    color: var(--teoria-green-dark);
+    font-weight: 700;
+    font-size: 0.98rem;
+}
+
+
+/* ============================================
+   4. CABEÇALHO / HERO
+============================================ */
+
+.teoria-hero {
+    position: relative;
+    overflow: hidden;
+
+    padding: clamp(28px, 5vw, 54px);
+
+    background:
+        linear-gradient(
+            125deg,
+            #ffffff 0%,
+            #f1faf4 65%,
+            #e8f5ed 100%
+        );
+
+    border: 1px solid #dcebe1;
+    border-radius: 24px;
+
+    box-shadow: var(--teoria-shadow);
+}
+
+.teoria-eyebrow {
+    display: inline-block;
+
+    margin: 0 0 14px;
+    padding: 6px 11px;
+
+    color: var(--teoria-green-dark);
+    background: #dff2e6;
+
+    border-radius: 100px;
+
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 1.4px;
+}
+
+.teoria-hero h1 {
+    max-width: 790px;
+
+    margin: 0 0 16px;
+
+    font-size: clamp(2rem, 5vw, 3.3rem);
+    line-height: 1.14;
+    letter-spacing: -1.2px;
+}
+
+.teoria-hero-description {
+    max-width: 760px;
+
+    margin: 0;
+
+    color: var(--teoria-text-light);
+
+    font-size: clamp(1rem, 2vw, 1.13rem);
+    line-height: 1.8;
+}
+
+.teoria-hero-highlight {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+
+    max-width: 820px;
+
+    margin-top: 30px;
+    padding: 19px 21px;
+
+    background: #ffffff;
+
+    border: 1px solid #dcebe1;
+    border-left: 4px solid var(--teoria-green);
+
+    border-radius: 12px;
+}
+
+.teoria-highlight-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 42px;
+
+    width: 42px;
+    height: 42px;
+
+    background: var(--teoria-green-light);
+    border-radius: 12px;
+
+    font-size: 1.4rem;
+}
+
+.teoria-hero-highlight strong {
+    display: block;
+    margin-bottom: 3px;
+
+    color: var(--teoria-green-dark);
+}
+
+.teoria-hero-highlight p {
+    margin: 0;
+
+    color: var(--teoria-text-light);
+    font-size: 0.95rem;
+}
+
+
+/* ============================================
+   5. NAVEGAÇÃO PELOS TEMAS
+============================================ */
+
+.teoria-nav-temas {
+    margin: 32px 0;
+    padding: 22px;
+
+    background: #ffffff;
+
+    border: 1px solid var(--teoria-border);
+    border-radius: var(--teoria-radius);
+}
+
+.teoria-nav-label {
+    display: block;
+    margin-bottom: 14px;
+
+    font-size: 0.82rem;
+    font-weight: 800;
+
+    letter-spacing: 0.7px;
+    text-transform: uppercase;
+
+    color: var(--teoria-text-light);
+}
+
+.teoria-nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+}
+
+.teoria-nav-links a {
+    display: inline-flex;
+    align-items: center;
+
+    min-height: 38px;
+    padding: 8px 12px;
+
+    background: #f4f8f5;
+    color: var(--teoria-text);
+
+    border: 1px solid #e2ebe5;
+    border-radius: 9px;
+
+    font-size: 0.84rem;
+    font-weight: 700;
+    line-height: 1.4;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        color 0.2s ease,
+        border-color 0.2s ease;
+}
+
+.teoria-nav-links a:hover {
+    color: var(--teoria-green-dark);
+    background: var(--teoria-green-light);
+    border-color: #b4ddc3;
+}
+
+.teoria-nav-links a:focus-visible,
+.teoria-back:focus-visible,
+.teoria-footer a:focus-visible,
+.teoria-cta:focus-visible {
+    outline: 3px solid #86cda4;
+    outline-offset: 3px;
+}
+
+
+/* ============================================
+   6. ÁREA DOS TEMAS
+============================================ */
+
+.teoria-conteudo {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 24px;
+}
+
+
+/* ============================================
+   7. CARTÕES DOS TEMAS
+============================================ */
+
+.teoria-card {
+    min-width: 0;
+    padding: clamp(21px, 4vw, 36px);
+
+    background: var(--teoria-surface);
+
+    border: 1px solid var(--teoria-border);
+    border-radius: var(--teoria-radius);
+
+    box-shadow: var(--teoria-shadow);
+
+    scroll-margin-top: 20px;
+}
+
+.teoria-card-heading {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    margin-bottom: 23px;
+}
+
+.teoria-numero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 46px;
+
+    width: 46px;
+    height: 46px;
+
+    background: var(--teoria-green-light);
+    color: var(--teoria-green-dark);
+
+    border-radius: 13px;
+
+    font-size: 1rem;
+    font-weight: 800;
+}
+
+.teoria-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 54px;
+
+    width: 54px;
+    height: 54px;
+
+    background: #f2f7f4;
+    border: 1px solid #e4ece6;
+
+    border-radius: 15px;
+
+    font-size: 1.75rem;
+}
+
+.teoria-categoria {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: var(--teoria-green);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.teoria-card-heading h2 {
+    margin: 0;
+
+    font-size: clamp(1.35rem, 3vw, 1.85rem);
+    line-height: 1.3;
+    letter-spacing: -0.35px;
+}
+
+
+/* ============================================
+   8. RESUMO EM UMA FRASE
+============================================ */
+
+.teoria-resumo {
+    margin-bottom: 25px;
+    padding: 20px 23px;
+
+    background: var(--teoria-green-light);
+
+    border-left: 4px solid var(--teoria-green);
+    border-radius: 0 12px 12px 0;
+}
+
+.teoria-resumo > span {
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: var(--teoria-green-dark);
+
+    font-size: 0.74rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.teoria-resumo p {
+    margin: 0;
+
+    color: #194a32;
+
+    font-size: clamp(1.04rem, 2vw, 1.22rem);
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+
+/* ============================================
+   9. TEXTO PRINCIPAL
+============================================ */
+
+.teoria-texto {
+    max-width: 900px;
+}
+
+.teoria-texto p {
+    margin: 0 0 17px;
+
+    color: #374151;
+
+    font-size: 1rem;
+    line-height: 1.9;
+}
+
+.teoria-texto p:last-child {
+    margin-bottom: 0;
+}
+
+.teoria-texto strong {
+    color: #1f4834;
+}
+
+
+/* ============================================
+   10. QUADROS VISUAIS
+============================================ */
+
+.teoria-visual {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+
+    margin-top: 25px;
+    padding: 19px;
+
+    background: var(--teoria-blue-light);
+
+    border: 1px solid #d3e8f5;
+    border-radius: 13px;
+}
+
+.teoria-visual-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 42px;
+
+    width: 42px;
+    height: 42px;
+
+    background: #ffffff;
+    border-radius: 12px;
+
+    font-size: 1.3rem;
+}
+
+.teoria-visual strong {
+    display: block;
+    margin-bottom: 5px;
+
+    color: #155276;
+}
+
+.teoria-visual p {
+    margin: 0;
+
+    color: #35596d;
+    font-size: 0.94rem;
+}
+
+.teoria-projeto {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+
+    margin-top: 25px;
+    padding: 20px;
+
+    background: var(--teoria-orange-light);
+
+    border: 1px solid #f4dfc9;
+    border-radius: 13px;
+}
+
+.teoria-projeto-icone {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 42px;
+
+    width: 42px;
+    height: 42px;
+
+    background: #ffffff;
+    border-radius: 12px;
+
+    font-size: 1.3rem;
+}
+
+.teoria-projeto .teoria-categoria {
+    color: #a65319;
+}
+
+.teoria-projeto p {
+    margin: 0;
+
+    color: #704625;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+
+/* ============================================
+   11. DICAS DE EFICIÊNCIA
+============================================ */
+
+.teoria-dicas-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 13px;
+
+    margin-top: 25px;
+}
+
+.teoria-dica {
+    min-width: 0;
+    padding: 18px;
+
+    background: #f8faf9;
+
+    border: 1px solid #e4ece6;
+    border-radius: 12px;
+}
+
+.teoria-dica > span {
+    display: block;
+
+    margin-bottom: 11px;
+
+    font-size: 1.6rem;
+}
+
+.teoria-dica strong {
+    display: block;
+    margin-bottom: 6px;
+
+    font-size: 0.98rem;
+}
+
+.teoria-dica p {
+    margin: 0;
+
+    color: var(--teoria-text-light);
+    font-size: 0.88rem;
+    line-height: 1.65;
+}
+
+
+/* ============================================
+   12. ORDEM DE PRIORIDADE DOS RESÍDUOS
+============================================ */
+
+.teoria-ordem-residuos {
+    margin: 25px 0;
+    padding: 23px;
+
+    background: #f8faf9;
+
+    border: 1px solid #e3ebe5;
+    border-radius: 14px;
+}
+
+.teoria-ordem-residuos h3 {
+    margin: 0 0 17px;
+
+    font-size: 1.12rem;
+}
+
+.teoria-ordem-residuos ol {
+    display: grid;
+    gap: 10px;
+
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    counter-reset: prioridade;
+}
+
+.teoria-ordem-residuos li {
+    position: relative;
+
+    padding: 13px 15px 13px 51px;
+
+    background: #ffffff;
+
+    border: 1px solid #e4ece6;
+    border-radius: 10px;
+
+    color: #475569;
+
+    counter-increment: prioridade;
+}
+
+.teoria-ordem-residuos li::before {
+    content: counter(prioridade);
+
+    position: absolute;
+    top: 11px;
+    left: 13px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 27px;
+    height: 27px;
+
+    background: var(--teoria-green-light);
+    color: var(--teoria-green-dark);
+
+    border-radius: 8px;
+
+    font-size: 0.82rem;
+    font-weight: 800;
+}
+
+.teoria-ordem-residuos strong {
+    color: var(--teoria-text);
+}
+
+
+/* ============================================
+   13. PLÁSTICO E COMPARAÇÕES
+============================================ */
+
+.teoria-comparacao {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 15px;
+
+    margin-top: 25px;
+}
+
+.teoria-comparacao-item {
+    padding: 20px;
+
+    background: #f8faf9;
+
+    border: 1px solid #e4ece6;
+    border-radius: 13px;
+}
+
+.teoria-comparacao-icon {
+    display: block;
+    margin-bottom: 10px;
+
+    font-size: 1.7rem;
+}
+
+.teoria-comparacao-item strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.teoria-comparacao-item p {
+    margin: 0;
+
+    color: var(--teoria-text-light);
+    font-size: 0.9rem;
+}
+
+
+/* ============================================
+   14. FLUXO DO PAPEL
+============================================ */
+
+.teoria-fluxo-papel {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 9px;
+
+    margin-top: 25px;
+    padding: 22px 18px;
+
+    background: #f8faf9;
+
+    border: 1px solid #e4ece6;
+    border-radius: 14px;
+}
+
+.teoria-fluxo-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    flex: 1;
+    min-width: 0;
+
+    text-align: center;
+}
+
+.teoria-fluxo-item span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 50px;
+    height: 50px;
+
+    background: #ffffff;
+    border: 1px solid var(--teoria-border);
+    border-radius: 14px;
+
+    font-size: 1.7rem;
+}
+
+.teoria-fluxo-item strong {
+    font-size: 0.83rem;
+}
+
+.teoria-fluxo-seta {
+    color: var(--teoria-green);
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+
+/* ============================================
+   15. DADOS E GRÁFICOS DO TEMA 7
+============================================ */
+
+.teoria-dados-bloco {
+    margin: 25px 0;
+    padding: 24px;
+
+    background: #f7faf8;
+
+    border: 1px solid #e0e9e3;
+    border-radius: 15px;
+}
+
+.teoria-dados-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+
+    margin-bottom: 24px;
+}
+
+.teoria-dados-heading > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 43px;
+
+    width: 43px;
+    height: 43px;
+
+    background: #e4f3e9;
+    border-radius: 12px;
+
+    font-size: 1.35rem;
+}
+
+.teoria-dados-heading h3 {
+    margin: 0 0 4px;
+
+    font-size: 1.1rem;
+    line-height: 1.4;
+}
+
+.teoria-dados-heading p {
+    margin: 0;
+
+    color: var(--teoria-text-light);
+    font-size: 0.9rem;
+}
+
+.teoria-matriz-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.teoria-metrica {
+    min-width: 0;
+    padding: 16px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2ebe5;
+    border-radius: 12px;
+}
+
+.teoria-metrica-icone {
+    display: block;
+    margin-bottom: 8px;
+
+    font-size: 1.4rem;
+}
+
+.teoria-metrica > strong {
+    display: block;
+
+    color: var(--teoria-green-dark);
+
+    font-size: clamp(1.2rem, 2.5vw, 1.65rem);
+    line-height: 1.3;
+}
+
+.teoria-metrica > span:not(.teoria-metrica-icone) {
+    display: block;
+
+    margin-top: 4px;
+
+    color: var(--teoria-text-light);
+    font-size: 0.83rem;
+}
+
+.teoria-barra {
+    height: 6px;
+    overflow: hidden;
+
+    margin-top: 14px;
+
+    background: #e9efeb;
+    border-radius: 10px;
+}
+
+.teoria-barra span {
+    display: block;
+
+    height: 100%;
+
+    background: var(--teoria-green);
+    border-radius: inherit;
+}
+
+.teoria-renovaveis {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-top: 16px;
+    padding: 16px 18px;
+
+    background: #e4f3e9;
+
+    border-radius: 11px;
+}
+
+.teoria-renovaveis span {
+    color: var(--teoria-green-dark);
+    font-size: 0.92rem;
+    font-weight: 700;
+}
+
+.teoria-renovaveis strong {
+    color: var(--teoria-green-dark);
+    font-size: 1.45rem;
+}
+
+.teoria-fonte-visual {
+    margin: 13px 0 0;
+
+    color: var(--teoria-text-light);
+    font-size: 0.78rem;
+}
+
+.teoria-nota-dados {
+    margin: 18px 0 0;
+
+    color: var(--teoria-text-light);
+    font-size: 0.85rem;
+    line-height: 1.7;
+}
+
+
+/* ============================================
+   16. COMPARAÇÃO DE EMISSÕES
+============================================ */
+
+.teoria-emissoes-bloco {
+    background: #f8fafc;
+
+    border-color: #dfe7ef;
+}
+
+.teoria-emissao-lista {
+    display: grid;
+    gap: 20px;
+}
+
+.teoria-emissao-item {
+    display: grid;
+    gap: 8px;
+}
+
+.teoria-emissao-nome {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    font-size: 0.94rem;
+}
+
+.teoria-emissao-nome span {
+    color: var(--teoria-text);
+}
+
+.teoria-emissao-nome strong {
+    color: #334155;
+    white-space: nowrap;
+}
+
+.teoria-emissao-barra {
+    height: 11px;
+    overflow: hidden;
+
+    background: #e8edf2;
+    border-radius: 20px;
+}
+
+.teoria-emissao-barra span {
+    display: block;
+
+    height: 100%;
+
+    background: #d97736;
+    border-radius: inherit;
+}
+
+
+/* ============================================
+   17. FÓRMULAS DA CALCULADORA
+============================================ */
+
+.teoria-formulas {
+    display: grid;
+    gap: 13px;
+
+    margin-top: 25px;
+}
+
+.teoria-formula {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+
+    padding: 21px;
+
+    background: #f8faf9;
+
+    border: 1px solid #e3ebe5;
+    border-radius: 13px;
+}
+
+.teoria-formula-numero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 39px;
+
+    width: 39px;
+    height: 39px;
+
+    background: var(--teoria-green-light);
+    color: var(--teoria-green-dark);
+
+    border-radius: 11px;
+
+    font-weight: 800;
+    font-size: 0.91rem;
+}
+
+.teoria-formula h3 {
+    margin: 0 0 11px;
+
+    font-size: 1.08rem;
+}
+
+.teoria-equacao {
+    display: inline-block;
+
+    margin: 0 0 11px;
+    padding: 10px 13px;
+
+    background: #ffffff;
+
+    border: 1px solid #e0e9e3;
+    border-radius: 8px;
+
+    color: var(--teoria-green-dark);
+
+    font-size: 0.94rem;
+    font-weight: 700;
+    line-height: 1.6;
+}
+
+.teoria-formula div > p:last-child {
+    margin: 0;
+
+    color: var(--teoria-text-light);
+    font-size: 0.92rem;
+    line-height: 1.8;
+}
+
+
+/* ============================================
+   18. EXEMPLO DO BANHO
+============================================ */
+
+.teoria-exemplo {
+    margin-top: 25px;
+    padding: 25px;
+
+    background: var(--teoria-blue-light);
+
+    border: 1px solid #d4e8f5;
+    border-radius: 15px;
+}
+
+.teoria-exemplo-tag {
+    display: inline-block;
+
+    margin-bottom: 11px;
+    padding: 5px 9px;
+
+    color: #155276;
+    background: #d6ebf8;
+
+    border-radius: 6px;
+
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.7px;
+}
+
+.teoria-exemplo h3 {
+    margin: 0 0 12px;
+
+    font-size: 1.25rem;
+    line-height: 1.4;
+}
+
+.teoria-exemplo > p {
+    color: #35596d;
+    font-size: 0.95rem;
+    line-height: 1.8;
+}
+
+.teoria-exemplo-conta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+
+    margin: 21px 0;
+    padding: 20px;
+
+    background: #ffffff;
+
+    border: 1px solid #d8e9f4;
+    border-radius: 12px;
+}
+
+.teoria-exemplo-conta > div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    min-width: 0;
+}
+
+.teoria-exemplo-conta div span {
+    color: var(--teoria-text-light);
+    font-size: 0.78rem;
+}
+
+.teoria-exemplo-conta div strong {
+    color: #155276;
+    font-size: clamp(1rem, 2.5vw, 1.3rem);
+}
+
+.teoria-conta-operador {
+    color: #7da5bc;
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+.teoria-exemplo > p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ============================================
+   19. QUADRO SOBRE PERDAS DE ENERGIA
+============================================ */
+
+.teoria-perdas {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+
+    margin-top: 25px;
+    padding: 22px;
+
+    background: var(--teoria-orange-light);
+
+    border: 1px solid #f0dcc9;
+    border-radius: 14px;
+}
+
+.teoria-perdas-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 44px;
+
+    width: 44px;
+    height: 44px;
+
+    background: #ffffff;
+
+    border-radius: 12px;
+
+    font-size: 1.4rem;
+}
+
+.teoria-perdas h3 {
+    margin: 0 0 10px;
+
+    color: #814519;
+
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+.teoria-perdas p {
+    margin: 0 0 15px;
+
+    color: #704625;
+    font-size: 0.93rem;
+    line-height: 1.8;
+}
+
+.teoria-perdas p:last-child {
+    margin-bottom: 0;
+}
+
+.teoria-perdas-numeros {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+
+    margin: 18px 0;
+}
+
+.teoria-perdas-numeros div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+
+    padding: 15px;
+
+    background: #ffffff;
+
+    border: 1px solid #f1dfce;
+    border-radius: 10px;
+}
+
+.teoria-perdas-numeros strong {
+    color: #a65319;
+
+    font-size: 1.6rem;
+    line-height: 1.3;
+}
+
+.teoria-perdas-numeros span {
+    color: #79543a;
+    font-size: 0.82rem;
+}
+
+
+/* ============================================
+   20. SEÇÕES "PARA SABER MAIS"
+============================================ */
+
+.teoria-saiba-mais {
+    margin-top: 25px;
+
+    border: 1px solid var(--teoria-border);
+    border-radius: 12px;
+
+    background: #ffffff;
+
+    overflow: hidden;
+}
+
+.teoria-saiba-mais summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    padding: 16px 19px;
+
+    color: var(--teoria-green-dark);
+    background: #f8faf9;
+
+    font-size: 0.95rem;
+    font-weight: 800;
+
+    cursor: pointer;
+    list-style: none;
+}
+
+.teoria-saiba-mais summary::-webkit-details-marker {
+    display: none;
+}
+
+.teoria-saiba-mais summary::after {
+    content: "+";
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex: 0 0 26px;
+
+    width: 26px;
+    height: 26px;
+
+    background: var(--teoria-green-light);
+    border-radius: 8px;
+
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+.teoria-saiba-mais[open] summary::after {
+    content: "−";
+}
+
+.teoria-saiba-mais summary:hover {
+    background: var(--teoria-green-light);
+}
+
+.teoria-detalhes {
+    padding: 18px 20px;
+
+    border-top: 1px solid var(--teoria-border);
+}
+
+.teoria-detalhes p {
+    margin: 0 0 13px;
+
+    color: var(--teoria-text-light);
+    font-size: 0.91rem;
+    line-height: 1.85;
+}
+
+.teoria-detalhes p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* ============================================
+   21. BOTÕES DE ACESSO A OUTRAS PÁGINAS
+============================================ */
+
+.teoria-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    margin-top: 24px;
+    padding: 13px 19px;
+
+    background: var(--teoria-green);
+    color: #ffffff;
+
+    border: 1px solid var(--teoria-green);
+    border-radius: 10px;
+
+    font-size: 0.94rem;
+    font-weight: 800;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.teoria-cta:hover {
+    background: var(--teoria-green-dark);
+    border-color: var(--teoria-green-dark);
+
+    transform: translateY(-1px);
+}
+
+.teoria-cta span {
+    font-size: 1.1rem;
+}
+
+
+/* ============================================
+   22. CHAMADA FINAL
+============================================ */
+
+.teoria-final {
+    margin-top: 30px;
+    padding: clamp(26px, 5vw, 42px);
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            130deg,
+            #e8f5ed,
+            #f4faf6
+        );
+
+    border: 1px solid #d4e9dc;
+    border-radius: 20px;
+}
+
+.teoria-final > span {
+    display: block;
+    margin-bottom: 11px;
+
+    font-size: 2rem;
+}
+
+.teoria-final h2 {
+    margin: 0 0 10px;
+
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    line-height: 1.35;
+}
+
+.teoria-final p {
+    max-width: 620px;
+    margin: 0 auto;
+
+    color: var(--teoria-text-light);
+}
+
+.teoria-final .teoria-cta {
+    margin-top: 22px;
+}
+
+
+/* ============================================
+   23. RODAPÉ
+============================================ */
+
+.teoria-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    margin-top: 32px;
+    padding: 25px 0 8px;
+
+    border-top: 1px solid var(--teoria-border);
+
+    text-align: center;
+}
+
+.teoria-footer a {
+    color: var(--teoria-green-dark);
+
+    font-size: 0.9rem;
+    font-weight: 800;
+
+    text-decoration: none;
+}
+
+.teoria-footer a:hover {
+    text-decoration: underline;
+}
+
+.teoria-footer p {
+    margin: 0;
+
+    color: var(--teoria-text-light);
+    font-size: 0.84rem;
+}
+
+
+/* ============================================
+   24. RESPONSIVIDADE
+============================================ */
+
+@media (max-width: 800px) {
+
+    .teoria-container {
+        padding: 18px;
+    }
+
+    .teoria-hero {
+        padding: 30px 25px;
+    }
+
+    .teoria-matriz-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .teoria-dicas-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .teoria-dica {
+        display: grid;
+        grid-template-columns: 36px minmax(0, 1fr);
+        column-gap: 12px;
+        align-items: center;
+    }
+
+    .teoria-dica > span {
+        grid-row: span 2;
+        margin: 0;
+    }
+
+    .teoria-dica strong {
+        margin: 0;
+    }
+
+    .teoria-dica p {
+        grid-column: 2;
+    }
+}
+
+
+@media (max-width: 560px) {
+
+    .teoria-container {
+        padding: 13px;
+    }
+
+    .teoria-topbar {
+        align-items: flex-start;
+        margin-bottom: 20px;
+    }
+
+    .teoria-back {
+        padding: 8px 10px;
+        font-size: 0.84rem;
+    }
+
+    .teoria-brand {
+        padding-top: 7px;
+        font-size: 0.85rem;
+    }
+
+    .teoria-hero {
+        padding: 25px 19px;
+        border-radius: 18px;
+    }
+
+    .teoria-hero h1 {
+        font-size: 2rem;
+        letter-spacing: -0.7px;
+    }
+
+    .teoria-hero-highlight {
+        padding: 15px;
+        gap: 11px;
+    }
+
+    .teoria-highlight-icon {
+        flex-basis: 35px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .teoria-nav-temas {
+        padding: 17px;
+        margin: 22px 0;
+    }
+
+    .teoria-nav-links {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .teoria-nav-links a {
+        width: 100%;
+    }
+
+    .teoria-card {
+        padding: 19px 16px;
+        border-radius: 15px;
+    }
+
+    .teoria-card-heading {
+        display: grid;
+        grid-template-columns: 43px minmax(0, 1fr);
+        gap: 10px 12px;
+    }
+
+    .teoria-numero {
+        grid-column: 1;
+        grid-row: 1;
+
+        width: 43px;
+        height: 43px;
+    }
+
+    .teoria-icone {
+        grid-column: 1;
+        grid-row: 2;
+
+        width: 43px;
+        height: 43px;
+
+        font-size: 1.4rem;
+    }
+
+    .teoria-card-heading > div {
+        grid-column: 2;
+        grid-row: 1 / span 2;
+        align-self: center;
+    }
+
+    .teoria-card-heading h2 {
+        font-size: 1.35rem;
+    }
+
+    .teoria-resumo {
+        padding: 16px;
+    }
+
+    .teoria-texto p {
+        font-size: 0.96rem;
+        line-height: 1.85;
+    }
+
+    .teoria-fluxo-papel {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 13px;
+        padding: 16px 10px;
+    }
+
+    .teoria-fluxo-item {
+        flex: 0 0 calc(50% - 20px);
+    }
+
+    .teoria-fluxo-seta {
+        display: none;
+    }
+
+    .teoria-matriz-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .teoria-metrica {
+        padding: 13px;
+    }
+
+    .teoria-renovaveis {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .teoria-exemplo-conta {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 8px;
+        padding: 15px;
+    }
+
+    .teoria-exemplo-conta > div {
+        padding: 10px 0;
+        border-bottom: 1px solid #e5edf2;
+    }
+
+    .teoria-exemplo-conta > div:last-child {
+        border-bottom: none;
+    }
+
+    .teoria-conta-operador {
+        display: none;
+    }
+
+    .teoria-perdas {
+        padding: 17px;
+        gap: 11px;
+    }
+
+    .teoria-perdas-icon {
+        flex-basis: 36px;
+        width: 36px;
+        height: 36px;
+
+        font-size: 1.15rem;
+    }
+
+    .teoria-perdas-numeros {
+        grid-template-columns: 1fr;
+    }
+
+    .teoria-emissao-nome {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 2px;
+    }
+
+    .teoria-dados-bloco {
+        padding: 17px;
+    }
+
+    .teoria-formula {
+        padding: 16px;
+        gap: 11px;
+    }
+
+    .teoria-formula-numero {
+        flex-basis: 33px;
+        width: 33px;
+        height: 33px;
+    }
+
+    .teoria-equacao {
+        font-size: 0.86rem;
+        overflow-wrap: anywhere;
+    }
+
+    .teoria-final {
+        padding: 27px 18px;
+    }
+}
+
+
+/* ============================================
+   25. ACESSIBILIDADE
+============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .teoria-page *,
+    .teoria-page *::before,
+    .teoria-page *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+    }
+}

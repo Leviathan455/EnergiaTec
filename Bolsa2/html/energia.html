@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Da geração ao clima: a jornada da energia elétrica</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../css/energia.css">
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header>
+      <h1>🔌 Da geração ao clima: a jornada da energia elétrica</h1>
+      <p>O que se perde no caminho, o que vira desperdício, quanto custa e qual é a pegada ambiental — do kWh à mudança do clima.</p>
+    </header>
+
+    <nav>
+      <a href="#fluxo">Perdas</a>
+      <a href="#desperdicio">Desperdício</a>
+      <a href="#custo">Custo</a>
+      <a href="#co2">CO₂eq</a>
+      <a href="#clima">Aquecimento global</a>
+      <a href="#termica">Sensação térmica</a>
+    </nav>
+
+    <section id="fluxo" style="--accent:var(--blue)">
+      <div class="h2wrap">
+        <div class="icon" style="background:var(--blue)">🏭</div>
+        <h2>1. Da usina até a tomada: quanto se perde no caminho</h2>
+      </div>
+
+      <p class="sub">
+        Toda energia elétrica perde um pouco de si mesma até chegar na sua casa.
+      </p>
+
+      <div class="card">
+        <div class="flow">
+          <div class="node">
+            <b>Usina</b>
+            <small>gera 100%</small>
+          </div>
+
+          <div class="arrow">→</div>
+
+          <div class="node">
+            <b>Transmissão</b>
+            <small class="loss">-2,5%</small>
+          </div>
+
+          <div class="arrow">→</div>
+
+          <div class="node">
+            <b>Distribuição</b>
+            <small class="loss">-7,2% técnica</small>
+          </div>
+
+          <div class="arrow">→</div>
+
+          <div class="node">
+            <b>Sua casa</b>
+            <small>≈90,5% chega</small>
+          </div>
+        </div>
+
+        <div class="warn">
+          <b>ℹ️</b>
+          <span>
+            Além disso, 7,1% da energia injetada "some" em furtos, fraudes e ligações clandestinas
+            (perdas não técnicas). Ninguém gera isso de propósito — mas o custo é rateado na tarifa
+            de quem paga a conta certinho. Fonte: ANEEL, Perdas de Energia na Distribuição 2025/2026.
+          </span>
+        </div>
+
+        <div class="big" style="margin-top:14px">
+          <span>Quanto você consome por mês</span>
+          <output id="kwhOut1">150 kWh</output>
+        </div>
+
+        <input type="range" id="kwh1" min="10" max="600" step="1" value="150">
+
+        <div class="res">
+          <div>
+            <small>Precisou ser gerado na usina</small>
+            <strong id="gerado">-</strong>
+          </div>
+
+          <div>
+            <small>Perdido no caminho (técnico)</small>
+            <strong id="perdido">-</strong>
+          </div>
+
+          <div>
+            <small>Isso é o mesmo que</small>
+            <strong id="perdidoComp">-</strong>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="desperdicio" style="--accent:var(--green)">
+      <div class="h2wrap">
+        <div class="icon" style="background:var(--green)">🧹</div>
+        <h2>2. Formas comuns de desperdício</h2>
+      </div>
+
+      <p class="sub">
+        Marque o que você já evita — isso não entra em nenhum cálculo, é só para refletir.
+      </p>
+
+      <div class="card">
+        <div class="grid2" id="waste"></div>
+        <div class="tally" id="tally"></div>
+      </div>
+    </section>
+
+    <section id="custo" style="--accent:var(--amber)">
+      <div class="h2wrap">
+        <div class="icon" style="background:var(--amber)">💰</div>
+        <h2>3. Quanto isso custa</h2>
+      </div>
+
+      <p class="sub">
+        A tarifa já embute o custo das perdas do sistema.
+      </p>
+
+      <div class="card">
+        <div class="big">
+          <span>Consumo mensal</span>
+          <output id="kwhOut2">150 kWh</output>
+        </div>
+
+        <input type="range" id="kwh2" min="10" max="600" step="1" value="150">
+
+        <div class="res">
+          <div>
+            <small>Custo da energia (tarifa ≈R$1,20/kWh)</small>
+            <strong id="custoE">-</strong>
+          </div>
+
+          <div>
+            <small>Parte da tarifa que paga as perdas*</small>
+            <strong id="custoPerda">-</strong>
+          </div>
+        </div>
+
+        <div class="note">
+          *Estimativa: ~14,3% da energia injetada vira perda técnica + não técnica, e esse custo é
+          diluído na tarifa de todos. Não é um item separado na sua fatura, é embutido no valor do kWh.
+        </div>
+      </div>
+    </section>
+
+    <section id="co2" style="--accent:var(--red)">
+      <div class="h2wrap">
+        <div class="icon" style="background:var(--red)">🌍</div>
+        <h2>4. Pegada de carbono (CO₂ equivalente)</h2>
+      </div>
+
+      <p class="sub">
+        O Brasil tem uma matriz elétrica bem mais limpa que a média mundial.
+      </p>
+
+      <div class="card">
+        <div class="seg" id="matrizSeg">
+          <button data-f="0.04" class="">Ano chuvoso (0,04 kg/kWh)</button>
+          <button data-f="0.07" class="on">Médio (0,07 kg/kWh)</button>
+          <button data-f="0.10" class="">Ano seco (0,10 kg/kWh)</button>
+        </div>
+
+        <div class="big">
+          <span>Consumo mensal</span>
+          <output id="kwhOut3">150 kWh</output>
+        </div>
+
+        <input type="range" id="kwh3" min="10" max="600" step="1" value="150">
+
+        <div class="res">
+          <div>
+            <small>CO₂eq por mês</small>
+            <strong id="co2mes">-</strong>
+          </div>
+
+          <div>
+            <small>CO₂eq por ano</small>
+            <strong id="co2ano">-</strong>
+          </div>
+
+          <div>
+            <small>Equivale a dirigir</small>
+            <strong id="co2km">-</strong>
+          </div>
+        </div>
+
+        <div class="note">
+          Fator do Sistema Interligado Nacional (SIN), que varia mês a mês conforme o quanto as
+          hidrelétricas precisam de reforço térmico (MCTI/SIRENE). O Brasil tem uma matriz muito mais
+          limpa que a média mundial — por isso os valores são pequenos.
+        </div>
+      </div>
+    </section>
+
+    <section id="clima" style="--accent:var(--purple)">
+      <div class="h2wrap">
+        <div class="icon" style="background:var(--purple)">🌡️</div>
+        <h2>5. Do CO₂ ao aquecimento global</h2>
+      </div>
+
+      <p class="sub">
+        Entenda por que isso não depende só da sua pegada de carbono.
+      </p>
+
+      <div class="card">
+        <p style="font-size:.9rem;margin-top:0">
+          O aquecimento não depende só da quantidade de CO₂eq — depende de <b>quais gases</b>
+          compõem esse total, do efeito resfriador dos aerossóis, da sensibilidade climática
+          (retroalimentações, principalmente nuvens), do atraso do oceano em absorver calor, e de
+          forçantes naturais. A forma mais robusta de ligar emissões a temperatura usa o total acumulado
+          desde a Revolução Industrial — a TCRE (IPCC AR6): cerca de <b>0,45 °C a cada 1.000 bilhões
+          de toneladas de CO₂</b> emitidas globalmente.
+        </p>
+
+        <div class="res">
+          <div>
+            <small>Sua pegada anual (CO₂eq)</small>
+            <strong id="pegadaAno">-</strong>
+          </div>
+
+          <div>
+            <small>Fração das emissões globais/ano (~37 Gt, partes por trilhão)</small>
+            <strong id="fracaoGlobal">-</strong>
+          </div>
+
+          <div>
+            <small>O quanto isso "pesa" no aquecimento global</small>
+            <strong id="deltaT">-</strong>
+          </div>
+        </div>
+
+        <div class="note" id="deltaTNote" style="margin-top:2px"></div>
+
+        <div class="warn" style="margin-top:12px">
+          Esse ΔT é um exercício ilustrativo de proporcionalidade (TCRE), não uma previsão real —
+          a contribuição de uma casa isolada é matematicamente minúscula. O valor só faz sentido como
+          <i>fração de um esforço coletivo</i>: do orçamento de carbono restante para ficar abaixo de
+          1,5 °C (hoje estimado em ~200-300 Gt CO₂, encolhendo a cada ano), cada família que reduz
+          consumo poupa sua fatia proporcional.
+        </div>
+      </div>
+    </section>
+
+    <section id="termica" style="--accent:var(--red)">
+      <div class="h2wrap">
+        <div class="icon" style="background:var(--red)">🥵</div>
+        <h2>6. A ligação com a sensação térmica</h2>
+      </div>
+
+      <p class="sub">
+        Teste como temperatura e umidade juntas afetam a sensação de calor.
+      </p>
+
+      <div class="card">
+        <p style="font-size:.9rem;margin-top:0">
+          Aquecimento global não é "todo dia X graus a mais" — é a <b>base de toda a distribuição
+          de temperaturas subindo</b>, com mais dias de calor extremo. E o ar mais quente retém mais
+          umidade (lei de Clausius-Clapeyron: ~7% mais vapor d'água a cada 1 °C), o que faz a sensação
+          térmica subir <i>mais rápido</i> que a temperatura do ar em dias úmidos. Teste abaixo:
+        </p>
+
+        <div class="big">
+          <span>Temperatura do ar</span>
+          <output id="tempOut">32 °C</output>
+        </div>
+
+        <input type="range" id="temp" min="20" max="45" step="1" value="32">
+
+        <div class="big">
+          <span>Umidade relativa</span>
+          <output id="humOut">60%</output>
+        </div>
+
+        <input type="range" id="hum" min="10" max="100" step="1" value="60">
+
+        <div class="res">
+          <div>
+            <small>Sensação térmica (índice de calor)</small>
+            <strong id="heatIdx">-</strong>
+          </div>
+
+          <div>
+            <small>Diferença para a temperatura real</small>
+            <strong id="heatDiff">-</strong>
+          </div>
+        </div>
+
+        <div class="note">
+          Fórmula de Rothfusz (NOAA), válida para temperaturas mais altas e usada aqui como aproximação educativa.
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      Fontes: ANEEL (perdas 2025/2026), MCTI/SIRENE (fator de emissão do SIN),
+      IPCC AR6 (TCRE e sensibilidade climática), NOAA (índice de calor).
+      Valores de referência, sujeitos a revisão periódica pelos respectivos órgãos.
+    </footer>
+
+  </div>
+
+  <script src="../js/energia.js"></script>
+</body>
+</html>

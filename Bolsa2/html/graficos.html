@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Simulação de Consumo de Energia</title>
+
+    <link rel="stylesheet" href="../css/grafico.css">
+</head>
+
+<body>
+
+    <main class="gc-container">
+        <!-- Botão para voltar à página inicial -->
+        <nav class="gc-back-navigation" aria-label="Navegação">
+            <a href="../index.html" class="gc-back-button">
+                <span aria-hidden="true">←</span>
+                Voltar ao início
+            </a>
+        </nav>
+        <!-- Cabeçalho -->
+        <header class="gc-header">
+            <p class="gc-eyebrow">SIMULAÇÃO EDUCATIVA</p>
+
+            <h1>Consumo de energia dos aparelhos</h1>
+
+            <p>
+                Explore como o funcionamento dos aparelhos
+                influencia a potência elétrica estimada.
+            </p>
+        </header>
+
+        <!-- Área principal -->
+        <section class="gc-layout">
+
+            <!-- Painel do aparelho -->
+            <article class="gc-card">
+
+                <!-- Seletor de aparelho -->
+                <div
+                    class="gc-appliance-selector"
+                    role="radiogroup"
+                    aria-label="Escolha o aparelho"
+                >
+
+                    <label class="gc-appliance-option">
+                        <input
+                            type="radio"
+                            name="gc-appliance"
+                            value="geladeira"
+                            checked
+                        >
+                        <span>🧊 Geladeira</span>
+                    </label>
+
+                    <label class="gc-appliance-option">
+                        <input
+                            type="radio"
+                            name="gc-appliance"
+                            value="chuveiro"
+                        >
+                        <span>🚿 Chuveiro</span>
+                    </label>
+
+                </div>
+
+                <h2 id="gc-appliance-title">Minha geladeira</h2>
+
+                <p
+                    class="gc-description"
+                    id="gc-appliance-description"
+                >
+                    Clique na geladeira para abrir ou fechar a porta.
+                </p>
+
+                <!-- Área das ilustrações -->
+                <div class="gc-fridge-area">
+
+                    <!-- =================================
+                         CHUVEIRO
+                    ================================== -->
+
+                    <div
+                        id="gc-shower-scene"
+                        class="gc-shower-scene"
+                        hidden
+                    >
+
+                        <svg
+                            viewBox="0 0 240 370"
+                            xmlns="http://www.w3.org/2000/svg"
+                            role="img"
+                            aria-label="Chuveiro moderno em uma parede de azulejos"
+                        >
+
+                            <defs>
+
+                                <!-- Fundo dos azulejos -->
+                                <linearGradient
+                                    id="gc-shower-wall"
+                                    x1="0"
+                                    y1="0"
+                                    x2="1"
+                                    y2="1"
+                                >
+                                    <stop offset="0%" stop-color="#f8fcff"/>
+                                    <stop offset="55%" stop-color="#e5f3fc"/>
+                                    <stop offset="100%" stop-color="#cfe6f5"/>
+                                </linearGradient>
+
+                                <!-- Acabamento metálico -->
+                                <linearGradient
+                                    id="gc-shower-metal"
+                                    x1="0"
+                                    y1="0"
+                                    x2="1"
+                                    y2="0"
+                                >
+                                    <stop offset="0%" stop-color="#64748b"/>
+                                    <stop offset="22%" stop-color="#f8fafc"/>
+                                    <stop offset="48%" stop-color="#cbd5e1"/>
+                                    <stop offset="72%" stop-color="#ffffff"/>
+                                    <stop offset="100%" stop-color="#64748b"/>
+                                </linearGradient>
+
+                                <!-- Superfície do registro -->
+                                <linearGradient
+                                    id="gc-shower-control"
+                                    x1="0"
+                                    y1="0"
+                                    x2="1"
+                                    y2="1"
+                                >
+                                    <stop offset="0%" stop-color="#f8fafc"/>
+                                    <stop offset="100%" stop-color="#94a3b8"/>
+                                </linearGradient>
+
+                                <!-- Água -->
+                                <linearGradient
+                                    id="gc-shower-water"
+                                    x1="0"
+                                    y1="0"
+                                    x2="0"
+                                    y2="1"
+                                >
+                                    <stop offset="0%" stop-color="#7dd3fc"/>
+                                    <stop offset="100%" stop-color="#0284c7"/>
+                                </linearGradient>
+
+                                <!-- Sombra -->
+                                <filter
+                                    id="gc-shower-shadow"
+                                    x="-30%"
+                                    y="-30%"
+                                    width="160%"
+                                    height="170%"
+                                >
+                                    <feDropShadow
+                                        dx="0"
+                                        dy="3"
+                                        stdDeviation="3"
+                                        flood-color="#64748b"
+                                        flood-opacity="0.18"
+                                    />
+                                </filter>
+
+                            </defs>
+
+                            <!-- Sombra externa -->
+                            <ellipse
+                                cx="120"
+                                cy="351"
+                                rx="77"
+                                ry="8"
+                                fill="#94a3b8"
+                                opacity="0.22"
+                            />
+
+                            <!-- Parede -->
+                            <rect
+                                x="25"
+                                y="17"
+                                width="190"
+                                height="328"
+                                rx="16"
+                                fill="url(#gc-shower-wall)"
+                                stroke="#b8d4e8"
+                                stroke-width="1.5"
+                            />
+
+                            <!-- Reflexo na parede -->
+                            <path
+                                d="M40 32 H105"
+                                stroke="#ffffff"
+                                stroke-width="3"
+                                stroke-linecap="round"
+                                opacity="0.8"
+                            />
+
+                            <!-- Azulejos -->
+                            <g
+                                fill="none"
+                                stroke="#b9d7e9"
+                                stroke-width="1.2"
+                                opacity="0.75"
+                            >
+                                <path d="M25 105 H215"/>
+                                <path d="M25 181 H215"/>
+                                <path d="M25 257 H215"/>
+
+                                <path d="M89 17 V105"/>
+                                <path d="M153 17 V105"/>
+
+                                <path d="M57 105 V181"/>
+                                <path d="M146 105 V181"/>
+
+                                <path d="M105 181 V257"/>
+                                <path d="M183 181 V257"/>
+
+                                <path d="M65 257 V345"/>
+                                <path d="M158 257 V345"/>
+                            </g>
+
+                            <!-- Reflexos dos azulejos -->
+                            <g fill="#ffffff" opacity="0.55">
+                                <rect x="38" y="119" width="42" height="3" rx="1.5"/>
+                                <rect x="164" y="194" width="33" height="3" rx="1.5"/>
+                                <rect x="76" y="273" width="53" height="3" rx="1.5"/>
+                            </g>
+
+                            <!-- Cano do chuveiro -->
+                            <path
+                                d="M159 38 V59 Q159 77 142 77 H121"
+                                fill="none"
+                                stroke="#64748b"
+                                stroke-width="12"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+
+                            <path
+                                d="M159 38 V59 Q159 77 142 77 H121"
+                                fill="none"
+                                stroke="url(#gc-shower-metal)"
+                                stroke-width="8"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                            />
+
+                            <!-- Ducha -->
+                            <g filter="url(#gc-shower-shadow)">
+
+                                <!-- Corpo -->
+                                <path
+                                    d="M83 76 Q83 66 94 66
+                                       H121 Q132 66 132 76
+                                       L128 88 H87 Z"
+                                    fill="url(#gc-shower-metal)"
+                                    stroke="#64748b"
+                                    stroke-width="1.5"
+                                />
+
+                                <!-- Reflexo -->
+                                <path
+                                    d="M90 72 H125"
+                                    fill="none"
+                                    stroke="#ffffff"
+                                    stroke-width="2.5"
+                                    stroke-linecap="round"
+                                    opacity="0.9"
+                                />
+
+                                <!-- Placa da ducha -->
+                                <path
+                                    d="M86 83 Q107 88 130 83
+                                       L128 91 Q107 97 88 91 Z"
+                                    fill="#64748b"
+                                    stroke="#475569"
+                                    stroke-width="1"
+                                />
+
+                                <!-- Perfurações -->
+                                <g
+                                    fill="#e0f2fe"
+                                    stroke="#94a3b8"
+                                    stroke-width="0.5"
+                                >
+                                    <circle cx="93" cy="88" r="1.4"/>
+                                    <circle cx="100" cy="89" r="1.4"/>
+                                    <circle cx="107" cy="89" r="1.4"/>
+                                    <circle cx="114" cy="89" r="1.4"/>
+                                    <circle cx="121" cy="88" r="1.4"/>
+
+                                    <circle cx="97" cy="92" r="1.2"/>
+                                    <circle cx="104" cy="93" r="1.2"/>
+                                    <circle cx="111" cy="93" r="1.2"/>
+                                    <circle cx="118" cy="92" r="1.2"/>
+                                </g>
+
+                            </g>
+
+                            <!-- Jatos de água -->
+                            <g
+                                class="gc-shower-streams"
+                                fill="none"
+                                stroke="url(#gc-shower-water)"
+                                stroke-width="2.3"
+                                stroke-linecap="round"
+                            >
+                                <path d="M94 99 L87 121"/>
+                                <path d="M101 100 L99 128"/>
+                                <path d="M108 100 L108 119"/>
+                                <path d="M115 100 L119 126"/>
+                                <path d="M122 99 L130 119"/>
+                            </g>
+
+                            <!-- Gotas principais -->
+                            <g class="gc-shower-drops" fill="#38bdf8">
+                                <path d="M86 132 Q82 138 86 141 Q90 138 86 132Z"/>
+                                <path d="M99 140 Q95 146 99 149 Q103 146 99 140Z"/>
+                                <path d="M110 130 Q106 136 110 139 Q114 136 110 130Z"/>
+                                <path d="M122 143 Q118 149 122 152 Q126 149 122 143Z"/>
+                                <path d="M133 130 Q129 136 133 139 Q137 136 133 130Z"/>
+                            </g>
+
+                            <!-- Gotas menores -->
+                            <g class="gc-shower-drops-soft" fill="#bae6fd">
+                                <circle cx="77" cy="145" r="2.2"/>
+                                <circle cx="91" cy="158" r="1.8"/>
+                                <circle cx="115" cy="151" r="2"/>
+                                <circle cx="136" cy="159" r="2.3"/>
+                                <circle cx="105" cy="165" r="1.6"/>
+                            </g>
+
+                            <!-- Registro -->
+                            <g filter="url(#gc-shower-shadow)">
+
+                                <rect
+                                    x="143"
+                                    y="207"
+                                    width="35"
+                                    height="38"
+                                    rx="7"
+                                    fill="#cbd5e1"
+                                    stroke="#94a3b8"
+                                    stroke-width="1.5"
+                                />
+
+                                <circle
+                                    cx="160.5"
+                                    cy="226"
+                                    r="15"
+                                    fill="url(#gc-shower-control)"
+                                    stroke="#64748b"
+                                    stroke-width="1.5"
+                                />
+
+                                <circle
+                                    cx="160.5"
+                                    cy="226"
+                                    r="10"
+                                    fill="#f8fafc"
+                                    stroke="#94a3b8"
+                                    stroke-width="1"
+                                />
+
+                                <!-- Indicadores azul e vermelho -->
+                                <path
+                                    d="M155 220 A8 8 0 0 1 160 218"
+                                    fill="none"
+                                    stroke="#3b82f6"
+                                    stroke-width="2.5"
+                                    stroke-linecap="round"
+                                />
+
+                                <path
+                                    d="M161 218 A8 8 0 0 1 166 220"
+                                    fill="none"
+                                    stroke="#ef4444"
+                                    stroke-width="2.5"
+                                    stroke-linecap="round"
+                                />
+
+                                <path
+                                    d="M160.5 226 L166 232"
+                                    fill="none"
+                                    stroke="#475569"
+                                    stroke-width="3"
+                                    stroke-linecap="round"
+                                />
+
+                                <circle
+                                    cx="160.5"
+                                    cy="226"
+                                    r="2.5"
+                                    fill="#475569"
+                                />
+
+                            </g>
+
+                            <!-- Acabamento inferior -->
+                            <path
+                                d="M38 326 H202"
+                                stroke="#94a3b8"
+                                stroke-width="3"
+                                stroke-linecap="round"
+                                opacity="0.8"
+                            />
+
+                            <path
+                                d="M48 334 H192"
+                                stroke="#ffffff"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                opacity="0.85"
+                            />
+
+                            <!-- Reflexos finais -->
+                            <path
+                                d="M40 48 V87"
+                                stroke="#ffffff"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                opacity="0.7"
+                            />
+
+                            <circle
+                                cx="195"
+                                cy="49"
+                                r="3"
+                                fill="#ffffff"
+                                opacity="0.8"
+                            />
+
+                        </svg>
+
+                        <!-- Botão de água quente -->
+                        <button
+                            type="button"
+                            id="gc-shower-hot"
+                            class="gc-shower-hot-button"
+                            aria-pressed="false"
+                        >
+                            Ativar água quente
+                        </button>
+
+                    </div>
+
+                    <!-- =================================
+                         GELADEIRA
+                    ================================== -->
+
+                    <button
+                        type="button"
+                        class="gc-fridge-scene"
+                        id="gc-fridge"
+                        aria-label="Abrir a porta da geladeira"
+                        aria-pressed="false"
+                    >
+
+                        <svg
+                            viewBox="0 0 240 370"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                        >
+
+                            <defs>
+
+                                <linearGradient
+                                    id="gc-fridge-body-gradient"
+                                    x1="0"
+                                    y1="0"
+                                    x2="1"
+                                    y2="1"
+                                >
+                                    <stop offset="0%" stop-color="#f8fafc"/>
+                                    <stop offset="100%" stop-color="#cbd5e1"/>
+                                </linearGradient>
+
+                                <linearGradient
+                                    id="gc-fridge-door-gradient"
+                                    x1="0"
+                                    y1="0"
+                                    x2="1"
+                                    y2="0"
+                                >
+                                    <stop offset="0%" stop-color="#f8fafc"/>
+                                    <stop offset="100%" stop-color="#dbe4eb"/>
+                                </linearGradient>
+
+                            </defs>
+
+                            <!-- Sombra -->
+                            <ellipse
+                                cx="120"
+                                cy="351"
+                                rx="78"
+                                ry="9"
+                                fill="#94a3b8"
+                                opacity="0.25"
+                            />
+
+                            <!-- Estrutura -->
+                            <rect
+                                x="43"
+                                y="17"
+                                width="154"
+                                height="328"
+                                rx="15"
+                                fill="url(#gc-fridge-body-gradient)"
+                                stroke="#94a3b8"
+                                stroke-width="2"
+                            />
+
+                            <!-- Interior -->
+                            <rect
+                                x="54"
+                                y="28"
+                                width="132"
+                                height="306"
+                                rx="7"
+                                fill="#e2e8f0"
+                                stroke="#64748b"
+                                stroke-width="1.5"
+                            />
+
+                            <!-- Compartimentos -->
+                            <rect x="63" y="39" width="114" height="52" rx="3" fill="#f8fafc"/>
+                            <rect x="63" y="99" width="114" height="65" rx="3" fill="#f8fafc"/>
+                            <rect x="63" y="172" width="114" height="65" rx="3" fill="#f8fafc"/>
+                            <rect x="63" y="245" width="114" height="44" rx="3" fill="#f8fafc"/>
+
+                            <!-- Prateleiras -->
+                            <rect x="63" y="89" width="114" height="6" rx="2" fill="#94a3b8"/>
+                            <rect x="63" y="162" width="114" height="6" rx="2" fill="#94a3b8"/>
+                            <rect x="63" y="235" width="114" height="6" rx="2" fill="#94a3b8"/>
+
+                            <!-- Gaveta inferior -->
+                            <rect
+                                x="66"
+                                y="294"
+                                width="108"
+                                height="29"
+                                rx="4"
+                                fill="#cbd5e1"
+                                stroke="#94a3b8"
+                                stroke-width="1"
+                            />
+
+                            <!-- Porta animada -->
+                            <g class="gc-fridge-door">
+
+                                <rect
+                                    x="49"
+                                    y="23"
+                                    width="141"
+                                    height="316"
+                                    rx="12"
+                                    fill="url(#gc-fridge-door-gradient)"
+                                    stroke="#64748b"
+                                    stroke-width="2"
+                                />
+
+                                <line
+                                    x1="52"
+                                    y1="112"
+                                    x2="187"
+                                    y2="112"
+                                    stroke="#b8c4ce"
+                                    stroke-width="2"
+                                />
+
+                                <!-- Reflexo -->
+                                <rect
+                                    x="60"
+                                    y="36"
+                                    width="7"
+                                    height="62"
+                                    rx="3"
+                                    fill="#ffffff"
+                                    opacity="0.65"
+                                />
+
+                                <!-- Puxador -->
+                                <rect
+                                    x="168"
+                                    y="130"
+                                    width="8"
+                                    height="55"
+                                    rx="4"
+                                    fill="#64748b"
+                                />
+
+                                <rect
+                                    x="168"
+                                    y="132"
+                                    width="3"
+                                    height="51"
+                                    rx="1.5"
+                                    fill="#e2e8f0"
+                                    opacity="0.7"
+                                />
+
+                            </g>
+
+                        </svg>
+
+                    </button>
+
+                </div>
+
+                <!-- Informações do aparelho -->
+                <div class="gc-status-panel">
+
+                    <div class="gc-status-item">
+                        <span
+                            class="gc-status-dot"
+                            id="gc-status-dot"
+                        ></span>
+
+                        <span id="gc-power-status">Desligada</span>
+                    </div>
+
+                    <div class="gc-status-item">
+                        <span>Porta:</span>
+
+                        <strong id="gc-door-status">
+                            Porta fechada
+                        </strong>
+                    </div>
+
+                    <div class="gc-watts-panel">
+                        <span>Potência atual estimada</span>
+
+                        <div class="gc-watts-value">
+                            <strong id="gc-watts">0</strong>
+                            <span>W</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Botão de energia -->
+                <button
+                    type="button"
+                    class="gc-power-button"
+                    id="gc-power"
+                >
+                    Ligar geladeira
+                </button>
+
+            </article>
+
+            <!-- Configuração da potência -->
+            <article class="gc-card">
+
+                <h2>Consumo normal</h2>
+
+                <p class="gc-description">
+                    Informe a potência normal do aparelho, em watts (W).
+                </p>
+
+                <form id="gc-power-form">
+
+                    <label for="gc-power-input">
+                        Potência normal da geladeira (W)
+                    </label>
+
+                    <div class="gc-power-row">
+
+                        <input
+                            type="number"
+                            id="gc-power-input"
+                            name="potencia"
+                            min="1"
+                            max="2000"
+                            step="1"
+                            value="150"
+                            required
+                        >
+
+                        <button
+                            type="submit"
+                            class="gc-apply-button"
+                        >
+                            Aplicar
+                        </button>
+
+                    </div>
+
+                    <p
+                        id="gc-power-error"
+                        class="gc-error"
+                        role="alert"
+                    ></p>
+
+                </form>
+
+                <!-- Explicação -->
+                <div class="gc-info-panel">
+
+                    <h3>Como funciona?</h3>
+
+                    <p>
+                        Com a porta fechada, o gráfico utiliza
+                        a potência normal informada.
+                    </p>
+
+                    <p>
+                        Com a porta aberta, a simulação considera
+                        um aumento ilustrativo de 10% na potência.
+                    </p>
+
+                </div>
+
+                <p class="gc-disclaimer">
+                    O aumento é uma estimativa simplificada para
+                    fins educativos. O consumo real depende do
+                    aparelho e das condições de uso.
+                </p>
+
+            </article>
+
+        </section>
+
+        <!-- Gráfico -->
+        <section class="gc-card gc-chart-card">
+
+            <div class="gc-chart-header">
+
+                <div>
+                    <h2>Gráfico de potência</h2>
+
+                    <p class="gc-description">
+                        Acompanhe a potência estimada ao longo do tempo.
+                    </p>
+                </div>
+
+                <button
+                    type="button"
+                    id="gc-chart-toggle"
+                    class="gc-chart-toggle"
+                    aria-pressed="false"
+                >
+                    Pausar gráfico
+                </button>
+
+            </div>
+
+            <div
+                id="gc-chart"
+                role="img"
+                aria-label="Gráfico da potência estimada do aparelho ao longo do tempo"
+            ></div>
+
+            <p class="gc-chart-note">
+                O gráfico é atualizado automaticamente durante a simulação.
+            </p>
+
+        </section>
+
+        <!-- Rodapé -->
+        <footer class="gc-footer">
+            Simulação educativa de consumo de energia.
+        </footer>
+
+    </main>
+
+    <!-- Biblioteca de gráficos -->
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+
+    <!-- Lógica da simulação -->
+    <script src="../js/grafico.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Calculadora de Energia</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/calculadora.css">
+</head>
+
+<body>
+
+    <header class="pagina-header">
+
+        <a href="../index.html" class="voltar">
+            ← Voltar
+        </a>
+
+        <div>
+            <span class="header-icone">⚡</span>
+            <span>Calculadora de Energia</span>
+        </div>
+
+    </header>
+
+
+    <main class="container">
+
+        <!-- CALCULADORA -->
+        <section class="card">
+
+            <h1>Calculadora de Energia</h1>
+
+            <p class="descricao">
+                Estime o consumo de energia e o custo de utilização de um aparelho.
+            </p>
+
+
+            <div class="formulario">
+
+                <!-- APARELHO -->
+                <div class="campo">
+
+                    <label for="aparelho">
+                        Aparelho
+                    </label>
+
+                    <select id="aparelho">
+
+                        <option value="">
+                            Selecione um aparelho
+                        </option>
+
+                        <option value="geladeira">
+                            Geladeira
+                        </option>
+
+                        <option value="chuveiro">
+                            Chuveiro
+                        </option>
+
+                        <option value="forno">
+                            Forno elétrico
+                        </option>
+
+                        <option value="freezer">
+                            Freezer
+                        </option>
+
+                        <option value="airfryer">
+                            Air Fryer
+                        </option>
+
+                        <option value="microondas">
+                            Micro-ondas
+                        </option>
+
+                        <option value="televisao">
+                            Televisão
+                        </option>
+
+                        <option value="computador">
+                            Computador
+                        </option>
+
+                        <option value="ventilador">
+                            Ventilador
+                        </option>
+
+                        <option value="arcondicionado">
+                            Ar-condicionado
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <!-- TEMPO -->
+                <div class="campo">
+
+                    <label for="horas">
+                        Tempo de uso
+                    </label>
+
+                    <div class="tempo">
+
+                        <input
+                            type="number"
+                            id="horas"
+                            min="0"
+                            value="0"
+                            placeholder="Horas"
+                        >
+
+                        <span>h</span>
+
+
+                        <input
+                            type="number"
+                            id="minutos"
+                            min="0"
+                            max="59"
+                            value="0"
+                            placeholder="Minutos"
+                        >
+
+                        <span>min</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TARIFA -->
+                <div class="campo">
+
+                    <label for="tarifa">
+                        Tarifa de energia
+                    </label>
+
+                    <div class="tarifa">
+
+                        <span>R$</span>
+
+                        <input
+                            type="number"
+                            id="tarifa"
+                            value="0.80"
+                            min="0"
+                            step="0.01"
+                        >
+
+                        <span>/ kWh</span>
+
+                    </div>
+
+                </div>
+
+
+                <!-- BOTÃO -->
+                <button id="btnCalcular">
+                    Calcular consumo
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- RESULTADO -->
+        <section class="resultado" id="resultado">
+
+            <h2>Resultado</h2>
+
+            <div class="resultado-grid">
+
+                <div class="resultado-item">
+
+                    <span class="resultado-label">
+                        Potência
+                    </span>
+
+                    <strong id="potenciaResultado">
+                        0 W
+                    </strong>
+
+                </div>
+
+
+                <div class="resultado-item">
+
+                    <span class="resultado-label">
+                        Tempo de uso
+                    </span>
+
+                    <strong id="tempoResultado">
+                        0 h
+                    </strong>
+
+                </div>
+
+
+                <div class="resultado-item">
+
+                    <span class="resultado-label">
+                        Consumo
+                    </span>
+
+                    <strong id="consumoResultado">
+                        0 kWh
+                    </strong>
+
+                </div>
+
+
+                <div class="resultado-item destaque">
+
+                    <span class="resultado-label">
+                        Custo estimado
+                    </span>
+
+                    <strong id="custoResultado">
+                        R$ 0,00
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- EXPLICAÇÃO -->
+        <section class="informacao">
+
+            <h3>
+                Como o cálculo é feito?
+            </h3>
+
+            <p>
+                O consumo é calculado a partir da potência do aparelho
+                e do tempo de utilização.
+            </p>
+
+            <p>
+                <strong>
+                    Consumo (kWh) = Potência (W) × Tempo (h) ÷ 1000
+                </strong>
+            </p>
+
+            <p>
+                <strong>
+                    Custo = Consumo (kWh) × Tarifa (R$/kWh)
+                </strong>
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- JAVASCRIPT -->
+    <script src="../js/controller.js"></script>
+
+</body>
+
+</html>
+

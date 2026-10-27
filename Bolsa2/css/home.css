@@ -1,0 +1,227 @@
+/* =====================================================
+   HOME
+   ===================================================== */
+
+.home {
+    min-height: 100vh;
+
+    background: linear-gradient(
+        180deg,
+        #eef7ff 0%,
+        #f8f9fc 100%
+    );
+}
+
+.home-container {
+    width: 100%;
+    max-width: 1100px;
+    min-height: 100vh;
+
+    margin: 0 auto;
+    padding: 50px 25px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+/* =====================================================
+   INTRODUÇÃO
+   ===================================================== */
+
+.home-intro {
+    text-align: center;
+}
+
+.home-icon {
+    font-size: 55px;
+    margin-bottom: 10px;
+}
+
+.home-intro h1 {
+    font-size: 48px;
+    margin-bottom: 12px;
+}
+
+.home-intro p {
+    max-width: 600px;
+
+    margin: 0 auto;
+
+    font-size: 19px;
+    line-height: 1.5;
+
+    color: #666;
+}
+
+
+/* =====================================================
+   OPÇÕES
+   ===================================================== */
+
+.home-opcoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 70px;
+
+    margin: 50px 0;
+}
+
+
+/* =====================================================
+   CÍRCULOS
+   ===================================================== */
+
+.opcao-circulo {
+    width: 330px;
+    height: 330px;
+
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 50px;
+
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.opcao-circulo:hover {
+    transform: translateY(-10px) scale(1.03);
+
+    box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.12);
+}
+
+
+/* CORES */
+
+.opcao-circulo.teoria {
+    background: #dff3ff;
+}
+
+.opcao-circulo.calculadora {
+    background: #fff0c9;
+}
+
+
+/* =====================================================
+   CONTEÚDO DOS CÍRCULOS
+   ===================================================== */
+
+.opcao-icone {
+    font-size: 55px;
+    margin-bottom: 12px;
+}
+
+.opcao-circulo h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.opcao-circulo p {
+    font-size: 15px;
+    line-height: 1.4;
+    color: #555;
+}
+
+.opcao-link {
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+
+/* =====================================================
+   RODAPÉ DA HOME
+   ===================================================== */
+
+.home-footer {
+    text-align: center;
+
+    color: #777;
+
+    font-size: 14px;
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE
+   ===================================================== */
+
+@media (max-width: 800px) {
+
+    .home-opcoes {
+        gap: 30px;
+    }
+
+    .opcao-circulo {
+        width: 280px;
+        height: 280px;
+
+        padding: 40px;
+    }
+
+}
+
+
+@media (max-width: 650px) {
+
+    .home-container {
+        padding: 35px 20px;
+    }
+
+    .home-intro h1 {
+        font-size: 36px;
+    }
+
+    .home-intro p {
+        font-size: 16px;
+    }
+
+    .home-opcoes {
+        flex-direction: column;
+
+        gap: 30px;
+
+        margin: 40px 0;
+    }
+
+    .opcao-circulo {
+        width: 290px;
+        height: 290px;
+    }
+
+}
+
+
+@media (max-width: 400px) {
+
+    .opcao-circulo {
+        width: 260px;
+        height: 260px;
+
+        padding: 35px;
+    }
+
+    .opcao-icone {
+        font-size: 45px;
+    }
+
+    .opcao-circulo h2 {
+        font-size: 24px;
+    }
+
+    .opcao-circulo p {
+        font-size: 14px;
+    }
+
+}
